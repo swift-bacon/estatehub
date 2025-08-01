@@ -1,0 +1,17 @@
+//
+//  Alerts.swift
+//  EstateHub
+//
+//  Created by Unit27 on 01/08/2025.
+//
+import UIKit
+
+class Alerts {
+    
+    static func showError(on viewController: UIViewController, title: String = "Błąd", message: String) {
+        let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "OK", style: .default))
+        viewController.present(alert, animated: true)
+    }
+    
+}

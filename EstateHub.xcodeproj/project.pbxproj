@@ -1,0 +1,687 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 77;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		3E28966C0A2813E7CC19DFA8 /* Pods_EstateHub_EstateHubUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C2CFE92419E053CFC17AAE38 /* Pods_EstateHub_EstateHubUITests.framework */; };
+		5749B74A1DCB447D41E2C940 /* Pods_EstateHub.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9FFF7F077D4EC914E3EC39F4 /* Pods_EstateHub.framework */; };
+		C3AB065474E9053D1AE9A1E7 /* Pods_EstateHubTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6E70E7D8025A30A510F2428E /* Pods_EstateHubTests.framework */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		E5C445DB2E33E60F00545BA2 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = E5C445B92E33E60E00545BA2 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = E5C445C02E33E60E00545BA2;
+			remoteInfo = EstateHub;
+		};
+		E5C445E52E33E60F00545BA2 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = E5C445B92E33E60E00545BA2 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = E5C445C02E33E60E00545BA2;
+			remoteInfo = EstateHub;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		4ABC31AF4160811A9EB0929D /* Pods-EstateHub.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EstateHub.debug.xcconfig"; path = "Target Support Files/Pods-EstateHub/Pods-EstateHub.debug.xcconfig"; sourceTree = "<group>"; };
+		4DEF1F3FE66F46D7A8920CE9 /* Pods-EstateHub.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EstateHub.release.xcconfig"; path = "Target Support Files/Pods-EstateHub/Pods-EstateHub.release.xcconfig"; sourceTree = "<group>"; };
+		56443BD3BE5CD82FEAA29E6A /* Pods-EstateHubTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EstateHubTests.debug.xcconfig"; path = "Target Support Files/Pods-EstateHubTests/Pods-EstateHubTests.debug.xcconfig"; sourceTree = "<group>"; };
+		6E70E7D8025A30A510F2428E /* Pods_EstateHubTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_EstateHubTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		9FFF7F077D4EC914E3EC39F4 /* Pods_EstateHub.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_EstateHub.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		B83492B230510386F51EA5CE /* Pods-EstateHub-EstateHubUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EstateHub-EstateHubUITests.debug.xcconfig"; path = "Target Support Files/Pods-EstateHub-EstateHubUITests/Pods-EstateHub-EstateHubUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		C2CFE92419E053CFC17AAE38 /* Pods_EstateHub_EstateHubUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_EstateHub_EstateHubUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		E11B5C494051E936989446B2 /* Pods-EstateHubTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EstateHubTests.release.xcconfig"; path = "Target Support Files/Pods-EstateHubTests/Pods-EstateHubTests.release.xcconfig"; sourceTree = "<group>"; };
+		E5C445C12E33E60E00545BA2 /* EstateHub.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = EstateHub.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		E5C445DA2E33E60F00545BA2 /* EstateHubTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = EstateHubTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		E5C445E42E33E60F00545BA2 /* EstateHubUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = EstateHubUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		F1023FAD6D8141F1BD208E55 /* Pods-EstateHub-EstateHubUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EstateHub-EstateHubUITests.release.xcconfig"; path = "Target Support Files/Pods-EstateHub-EstateHubUITests/Pods-EstateHub-EstateHubUITests.release.xcconfig"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
+		E5C445EC2E33E60F00545BA2 /* Exceptions for "EstateHub" folder in "EstateHub" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				Info.plist,
+			);
+			target = E5C445C02E33E60E00545BA2 /* EstateHub */;
+		};
+/* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
+
+/* Begin PBXFileSystemSynchronizedRootGroup section */
+		E5C445C32E33E60E00545BA2 /* EstateHub */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			exceptions = (
+				E5C445EC2E33E60F00545BA2 /* Exceptions for "EstateHub" folder in "EstateHub" target */,
+			);
+			path = EstateHub;
+			sourceTree = "<group>";
+		};
+		E5C445DD2E33E60F00545BA2 /* EstateHubTests */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = EstateHubTests;
+			sourceTree = "<group>";
+		};
+		E5C445E72E33E60F00545BA2 /* EstateHubUITests */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = EstateHubUITests;
+			sourceTree = "<group>";
+		};
+/* End PBXFileSystemSynchronizedRootGroup section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		E5C445BE2E33E60E00545BA2 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5749B74A1DCB447D41E2C940 /* Pods_EstateHub.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E5C445D72E33E60F00545BA2 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C3AB065474E9053D1AE9A1E7 /* Pods_EstateHubTests.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E5C445E12E33E60F00545BA2 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3E28966C0A2813E7CC19DFA8 /* Pods_EstateHub_EstateHubUITests.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		45F9467279BDAE85B235C07B /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				9FFF7F077D4EC914E3EC39F4 /* Pods_EstateHub.framework */,
+				C2CFE92419E053CFC17AAE38 /* Pods_EstateHub_EstateHubUITests.framework */,
+				6E70E7D8025A30A510F2428E /* Pods_EstateHubTests.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		B4EA1AAE81624459CEB69623 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				4ABC31AF4160811A9EB0929D /* Pods-EstateHub.debug.xcconfig */,
+				4DEF1F3FE66F46D7A8920CE9 /* Pods-EstateHub.release.xcconfig */,
+				B83492B230510386F51EA5CE /* Pods-EstateHub-EstateHubUITests.debug.xcconfig */,
+				F1023FAD6D8141F1BD208E55 /* Pods-EstateHub-EstateHubUITests.release.xcconfig */,
+				56443BD3BE5CD82FEAA29E6A /* Pods-EstateHubTests.debug.xcconfig */,
+				E11B5C494051E936989446B2 /* Pods-EstateHubTests.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		E5C445B82E33E60E00545BA2 = {
+			isa = PBXGroup;
+			children = (
+				E5C445C32E33E60E00545BA2 /* EstateHub */,
+				E5C445DD2E33E60F00545BA2 /* EstateHubTests */,
+				E5C445E72E33E60F00545BA2 /* EstateHubUITests */,
+				E5C445C22E33E60E00545BA2 /* Products */,
+				B4EA1AAE81624459CEB69623 /* Pods */,
+				45F9467279BDAE85B235C07B /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		E5C445C22E33E60E00545BA2 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				E5C445C12E33E60E00545BA2 /* EstateHub.app */,
+				E5C445DA2E33E60F00545BA2 /* EstateHubTests.xctest */,
+				E5C445E42E33E60F00545BA2 /* EstateHubUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		E5C445C02E33E60E00545BA2 /* EstateHub */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = E5C445ED2E33E60F00545BA2 /* Build configuration list for PBXNativeTarget "EstateHub" */;
+			buildPhases = (
+				9CEB98041A397406E08F0860 /* [CP] Check Pods Manifest.lock */,
+				E5C445BD2E33E60E00545BA2 /* Sources */,
+				E5C445BE2E33E60E00545BA2 /* Frameworks */,
+				E5C445BF2E33E60E00545BA2 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			fileSystemSynchronizedGroups = (
+				E5C445C32E33E60E00545BA2 /* EstateHub */,
+			);
+			name = EstateHub;
+			productName = EstateHub;
+			productReference = E5C445C12E33E60E00545BA2 /* EstateHub.app */;
+			productType = "com.apple.product-type.application";
+		};
+		E5C445D92E33E60F00545BA2 /* EstateHubTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = E5C445F22E33E60F00545BA2 /* Build configuration list for PBXNativeTarget "EstateHubTests" */;
+			buildPhases = (
+				E95DD14094E9B3F44B49DFF1 /* [CP] Check Pods Manifest.lock */,
+				E5C445D62E33E60F00545BA2 /* Sources */,
+				E5C445D72E33E60F00545BA2 /* Frameworks */,
+				E5C445D82E33E60F00545BA2 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				E5C445DC2E33E60F00545BA2 /* PBXTargetDependency */,
+			);
+			fileSystemSynchronizedGroups = (
+				E5C445DD2E33E60F00545BA2 /* EstateHubTests */,
+			);
+			name = EstateHubTests;
+			productName = EstateHubTests;
+			productReference = E5C445DA2E33E60F00545BA2 /* EstateHubTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		E5C445E32E33E60F00545BA2 /* EstateHubUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = E5C445F52E33E60F00545BA2 /* Build configuration list for PBXNativeTarget "EstateHubUITests" */;
+			buildPhases = (
+				491E833CBECF503D50394E39 /* [CP] Check Pods Manifest.lock */,
+				E5C445E02E33E60F00545BA2 /* Sources */,
+				E5C445E12E33E60F00545BA2 /* Frameworks */,
+				E5C445E22E33E60F00545BA2 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				E5C445E62E33E60F00545BA2 /* PBXTargetDependency */,
+			);
+			fileSystemSynchronizedGroups = (
+				E5C445E72E33E60F00545BA2 /* EstateHubUITests */,
+			);
+			name = EstateHubUITests;
+			productName = EstateHubUITests;
+			productReference = E5C445E42E33E60F00545BA2 /* EstateHubUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		E5C445B92E33E60E00545BA2 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1620;
+				LastUpgradeCheck = 1620;
+				TargetAttributes = {
+					E5C445C02E33E60E00545BA2 = {
+						CreatedOnToolsVersion = 16.2;
+					};
+					E5C445D92E33E60F00545BA2 = {
+						CreatedOnToolsVersion = 16.2;
+						TestTargetID = E5C445C02E33E60E00545BA2;
+					};
+					E5C445E32E33E60F00545BA2 = {
+						CreatedOnToolsVersion = 16.2;
+						TestTargetID = E5C445C02E33E60E00545BA2;
+					};
+				};
+			};
+			buildConfigurationList = E5C445BC2E33E60E00545BA2 /* Build configuration list for PBXProject "EstateHub" */;
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = E5C445B82E33E60E00545BA2;
+			minimizedProjectReferenceProxies = 1;
+			preferredProjectObjectVersion = 77;
+			productRefGroup = E5C445C22E33E60E00545BA2 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				E5C445C02E33E60E00545BA2 /* EstateHub */,
+				E5C445D92E33E60F00545BA2 /* EstateHubTests */,
+				E5C445E32E33E60F00545BA2 /* EstateHubUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		E5C445BF2E33E60E00545BA2 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E5C445D82E33E60F00545BA2 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E5C445E22E33E60F00545BA2 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		491E833CBECF503D50394E39 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-EstateHub-EstateHubUITests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		9CEB98041A397406E08F0860 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-EstateHub-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		E95DD14094E9B3F44B49DFF1 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-EstateHubTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		E5C445BD2E33E60E00545BA2 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E5C445D62E33E60F00545BA2 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E5C445E02E33E60F00545BA2 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		E5C445DC2E33E60F00545BA2 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = E5C445C02E33E60E00545BA2 /* EstateHub */;
+			targetProxy = E5C445DB2E33E60F00545BA2 /* PBXContainerItemProxy */;
+		};
+		E5C445E62E33E60F00545BA2 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = E5C445C02E33E60E00545BA2 /* EstateHub */;
+			targetProxy = E5C445E52E33E60F00545BA2 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		E5C445EE2E33E60F00545BA2 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 4ABC31AF4160811A9EB0929D /* Pods-EstateHub.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = KZM8JH55Z4;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = EstateHub/Info.plist;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.swiftbacon.EstateHub;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		E5C445EF2E33E60F00545BA2 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 4DEF1F3FE66F46D7A8920CE9 /* Pods-EstateHub.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = KZM8JH55Z4;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = EstateHub/Info.plist;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.swiftbacon.EstateHub;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		E5C445F02E33E60F00545BA2 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 18.2;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		E5C445F12E33E60F00545BA2 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 18.2;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		E5C445F32E33E60F00545BA2 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 56443BD3BE5CD82FEAA29E6A /* Pods-EstateHubTests.debug.xcconfig */;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = KZM8JH55Z4;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 18.2;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.swiftbacon.EstateHubTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/EstateHub.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/EstateHub";
+			};
+			name = Debug;
+		};
+		E5C445F42E33E60F00545BA2 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = E11B5C494051E936989446B2 /* Pods-EstateHubTests.release.xcconfig */;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = KZM8JH55Z4;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 18.2;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.swiftbacon.EstateHubTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/EstateHub.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/EstateHub";
+			};
+			name = Release;
+		};
+		E5C445F62E33E60F00545BA2 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = B83492B230510386F51EA5CE /* Pods-EstateHub-EstateHubUITests.debug.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = KZM8JH55Z4;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.swiftbacon.EstateHubUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = EstateHub;
+			};
+			name = Debug;
+		};
+		E5C445F72E33E60F00545BA2 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = F1023FAD6D8141F1BD208E55 /* Pods-EstateHub-EstateHubUITests.release.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = KZM8JH55Z4;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.swiftbacon.EstateHubUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = EstateHub;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		E5C445BC2E33E60E00545BA2 /* Build configuration list for PBXProject "EstateHub" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				E5C445F02E33E60F00545BA2 /* Debug */,
+				E5C445F12E33E60F00545BA2 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		E5C445ED2E33E60F00545BA2 /* Build configuration list for PBXNativeTarget "EstateHub" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				E5C445EE2E33E60F00545BA2 /* Debug */,
+				E5C445EF2E33E60F00545BA2 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		E5C445F22E33E60F00545BA2 /* Build configuration list for PBXNativeTarget "EstateHubTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				E5C445F32E33E60F00545BA2 /* Debug */,
+				E5C445F42E33E60F00545BA2 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		E5C445F52E33E60F00545BA2 /* Build configuration list for PBXNativeTarget "EstateHubUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				E5C445F62E33E60F00545BA2 /* Debug */,
+				E5C445F72E33E60F00545BA2 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = E5C445B92E33E60E00545BA2 /* Project object */;
+}
