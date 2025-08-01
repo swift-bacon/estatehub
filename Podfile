@@ -7,6 +7,11 @@ target 'EstateHub' do
 
   # Pods for EstateHub
 
+  pod 'FirebaseAnalytics'
+  pod 'FirebaseAuth'
+  pod 'FirebaseFirestore'
+  pod 'FirebaseStorage'
+
   target 'EstateHubTests' do
     inherit! :search_paths
     # Pods for testing
