@@ -98,10 +98,10 @@
             </objects>
             <point key="canvasLocation" x="113.74045801526717" y="-34.507042253521128"/>
         </scene>
-        <!--Sign Up View Controller-->
+        <!--Sign Up Email View Controller-->
         <scene sceneID="ab0-SS-F9m">
             <objects>
-                <viewController id="CFJ-Kt-JtM" customClass="SignUpViewController" customModule="EstateHub" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="CFJ-Kt-JtM" customClass="SignUpEmailViewController" customModule="EstateHub" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="jYw-bk-dYV">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -123,12 +123,28 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <viewLayoutGuide key="safeArea" id="Lw9-gy-dpB"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </view>
                     <navigationItem key="navigationItem" id="j50-2V-vFc"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Gqj-Yc-HOv" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="992" y="-361"/>
+        </scene>
+        <!--Sign Up Password View Controller-->
+        <scene sceneID="zRy-iQ-s6h">
+            <objects>
+                <viewController id="OVp-DC-1kv" customClass="SignUpPasswordViewController" customModule="EstateHub" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Jka-wQ-47p">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="hpt-0N-Kso"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="AEv-cG-XcD" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1715" y="325"/>
         </scene>
     </scenes>
     <resources>
