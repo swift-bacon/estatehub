@@ -1,12 +1,12 @@
 //
-//  UserProfileViewController.swift
+//  AddAdvertViewController.swift
 //  EstateHub
 //
-//  Created by Unit27 on 01/08/2025.
+//  Created by Unit27 on 02/08/2025.
 //
 import UIKit
 
-class UserProfileViewController: UIViewController {
+class AddAvertViewController: UIViewController {
     
     // MARK: - View lifecycle
     

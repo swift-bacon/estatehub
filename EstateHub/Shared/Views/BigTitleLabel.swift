@@ -8,6 +8,8 @@ import UIKit
 
 class BigTitleLabel: UILabel {
     
+    // MARK: - Inits
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
         setupStyles()
@@ -23,6 +25,11 @@ class BigTitleLabel: UILabel {
         text = labelText
     }
     
+    // MARK: - Setups
+    
+    ///
+    /// Setup styles
+    ///
     private func setupStyles() {
         font = .systemFont(ofSize: 32, weight: .bold)
         textColor = .black

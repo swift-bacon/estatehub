@@ -8,6 +8,8 @@ import UIKit
 
 class DashboardViewController: UIViewController {
     
+    // MARK: - View lifecycle
+    
     override func viewDidLoad() {
         super.viewDidLoad()
     }

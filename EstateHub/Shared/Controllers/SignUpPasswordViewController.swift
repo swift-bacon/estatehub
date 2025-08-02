@@ -19,7 +19,7 @@ class SignUpPasswordViewController: UIViewController {
     private let passwordTextField =  DefaultTextField(placeholder: "Enter password")
     private lazy var nextButton = DefaultButton(title: "Next", target: self, action: #selector(nextButtonTapped))
     
-    // MARK: - View did load
+    // MARK: - View lifecycle
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -29,6 +29,9 @@ class SignUpPasswordViewController: UIViewController {
     
     // MARK: - Layout
     
+    ///
+    /// Setup layout
+    ///
     private func setupLayout() {
         view.backgroundColor = .white
         
@@ -77,4 +80,5 @@ class SignUpPasswordViewController: UIViewController {
             Alerts.showError(on: self, message: "Wrong password format")
         }
     }
+    
 }

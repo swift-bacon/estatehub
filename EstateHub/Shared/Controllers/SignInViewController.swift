@@ -15,7 +15,7 @@ class SignInViewController: UIViewController {
     private let passwordTextField =  DefaultTextField(placeholder: "Enter password")
     private lazy var nextButton = DefaultButton(title: "Login", target: self, action: #selector(nextButtonTapped))
     
-    // MARK: - Lifecycle
+    // MARK: - View lifecycle
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -25,6 +25,9 @@ class SignInViewController: UIViewController {
     
     // MARK: - Layout
     
+    ///
+    /// Setup layout
+    ///
     private func setupLayout() {
         view.addSubview(emailTextField)
         view.addSubview(passwordTextField)

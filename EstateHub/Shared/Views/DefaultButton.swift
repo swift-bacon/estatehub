@@ -8,9 +8,8 @@ import UIKit
 
 class DefaultButton: UIButton {
     
-    //
     // MARK: - Inits
-    //
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
         setupStyles()
@@ -27,9 +26,11 @@ class DefaultButton: UIButton {
         addTarget(target, action: action, for: .touchUpInside)
     }
     
-    //
     // MARK: - Setup styles
-    //
+    
+    ///
+    /// Setup styles
+    ///
     private func setupStyles() {
         role = .primary
         layer.cornerRadius = 10
@@ -40,9 +41,8 @@ class DefaultButton: UIButton {
         tintColor = UIColor.black.withAlphaComponent(0.99)
     }
     
-    //
     // MARK: - Overrides
-    //
+    
     override var isHighlighted: Bool {
         didSet {
             alpha = isHighlighted ? 0.7 : 1.0

@@ -8,6 +8,15 @@ import UIKit
 
 class Alerts {
     
+    
+    ///
+    /// Show error
+    ///
+    /// - Parameters:
+    ///   - viewController: UIViewController
+    ///   - title: String
+    ///   - message: String
+    ///
     static func showError(on viewController: UIViewController, title: String = "Błąd", message: String) {
         let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
         alert.addAction(UIAlertAction(title: "OK", style: .default))

@@ -9,16 +9,25 @@ import FirebaseFirestoreInternal
 
 struct AuthService {
     
-    //
-    // Log user in
-    //
+    ///
+    /// Log user in
+    ///
+    /// - Parameters:
+    ///   - email: String
+    ///   - password: String
+    ///   - completion: @escaping(AuthDataResult?, Error?) -> Void
+    ///
     static func logUserIn(email: String, password: String, completion: @escaping(AuthDataResult?, Error?) -> Void) {
         Auth.auth().signIn(withEmail: email, password: password, completion: completion)
     }
     
-    //
-    // Register user with credentials
-    //
+    ///
+    /// Register user
+    ///
+    /// - Parameters:
+    ///   - credentials: AuthCredentials
+    ///   - completion: @escaping(Error?) -> Void
+    ///
     static func registerUser(credentials: AuthCredentials, completion: @escaping(Error?) -> Void) {
         ImageUploader.uploadImage(image: credentials.profileImage) { imageURL in
             Auth.auth().createUser(withEmail: credentials.email, password: credentials.password) { result, error in

@@ -25,6 +25,9 @@ class DefaultTextField: UITextField {
     
     // MARK: - Style Setup
     
+    ///
+    /// Setup styles
+    ///
     private func setupStyles() {
         borderStyle = .roundedRect
         keyboardType = .emailAddress

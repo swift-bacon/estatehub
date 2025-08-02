@@ -9,9 +9,13 @@ import FirebaseStorage
 
 struct ImageUploader {
     
-    //
-    // Upload image to firebase storage
-    //
+    ///
+    /// Upload Image
+    ///
+    /// - Parameters:
+    ///   - image: UIImage
+    ///   - completion: @escaping(String) -> Void
+    ///
     static func uploadImage(image: UIImage, completion: @escaping(String) -> Void) {
         guard let imageData = image.jpegData(compressionQuality: 0.75) else {return}
         let fileName = NSUUID().uuidString

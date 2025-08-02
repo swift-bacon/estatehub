@@ -16,7 +16,7 @@ class SignUpEmailViewController: UIViewController {
     private let emailTextField =  DefaultTextField(placeholder: "Enter e-mail address")
     private lazy var nextButton = DefaultButton(title: "Next", target: self, action: #selector(nextButtonTapped))
     
-    // MARK: - Lifecycle
+    // MARK: - View lifecycle
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -26,6 +26,9 @@ class SignUpEmailViewController: UIViewController {
     
     // MARK: - Layout
     
+    ///
+    /// Setup layout
+    ///
     private func setupLayout() {
         view.backgroundColor = .white
         

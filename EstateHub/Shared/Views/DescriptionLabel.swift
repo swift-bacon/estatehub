@@ -23,6 +23,9 @@ class DescriptionLabel: UILabel {
         text = labelText
     }
     
+    ///
+    /// Setup Styles
+    ///
     private func setupStyles() {
         font = .systemFont(ofSize: 16, weight: .regular)
         textColor = .black
