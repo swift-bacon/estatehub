@@ -5,6 +5,7 @@
 //  Created by Unit27 on 02/08/2025.
 //
 import UIKit
+import FirebaseAuth
 
 class SignUpAvatarViewController: UIViewController {
     
@@ -16,7 +17,7 @@ class SignUpAvatarViewController: UIViewController {
     // MARK: - UI Elements
     
     private var titleText = BigTitleLabel(labelText: "Registration")
-    private var descriptionText = DescriptionLabel(labelText: "Set your avatar image")
+    private var descriptionText = DescriptionLabel(labelText: "Set your avatar image (optional)")
     private var avatarImageView = AvatarImageView(frame: .zero)
     private lazy var registerButton = DefaultButton(title: "Register", target: self, action: #selector(registerButtonTapped))
     
@@ -72,14 +73,27 @@ class SignUpAvatarViewController: UIViewController {
     // MARK: - Actions
     
     @objc private func registerButtonTapped() {
-        var isRegistrationCompleted = false
+        guard let userEmail = email, !userEmail.isEmpty, let userPassword = password, !userPassword.isEmpty else {
+            print("Registration failed, missing parameters")
+            return
+        }
         
+        guard let selectedImage = avatarImageView.image else {
+            Alerts.showError(on: self, message: "Please select an avatar image")
+            return
+        }
         
-        if isRegistrationCompleted {
-            let dashboardViewController = DashboardViewController()
-            navigationController?.pushViewController(dashboardViewController, animated: true)
-        } else {
-            Alerts.showError(on: self, message: "Registration process failed")
+        Task {
+            do {
+               try await AuthService.registerUser(credentials: AuthCredentials(email: userEmail, password: userPassword, profileImage: selectedImage))
+                
+                LocalUserStorage.saveUser(email: userEmail, uid: Auth.auth().currentUser?.uid ?? "", avatarImage: selectedImage)
+                
+                let dashboardViewController = DashboardViewController()
+                navigationController?.pushViewController(dashboardViewController, animated: true)
+            } catch {
+                Alerts.showError(on: self, message: "Registration failed: \(error.localizedDescription)")
+            }
         }
     }
     

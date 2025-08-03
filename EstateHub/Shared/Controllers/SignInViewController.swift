@@ -98,12 +98,16 @@ class SignInViewController: UIViewController {
         }
 
         do {
-            let result = try await AuthService.logUserIn(email: email, password: password)
+            try await AuthService.logUserIn(email: email, password: password)
             
-            if result.credential != nil {
-                navigationController?.pushViewController(DashboardViewController(), animated: true)
-            }
-            
+            guard let sceneDelegate = UIApplication.shared.connectedScenes.first?.delegate as? SceneDelegate else { return }
+
+            let storyboard = UIStoryboard(name: "Main", bundle: nil)
+            let dashboardVC = storyboard.instantiateViewController(withIdentifier: "DashboardViewController")
+
+            sceneDelegate.window?.rootViewController = UINavigationController(rootViewController: dashboardVC)
+            sceneDelegate.window?.makeKeyAndVisible()
+
         } catch {
             Alerts.showError(on: self, message: "Login error: \(error.localizedDescription)")
         }

@@ -8,7 +8,6 @@ import UIKit
 
 class Alerts {
     
-    
     ///
     /// Show error
     ///

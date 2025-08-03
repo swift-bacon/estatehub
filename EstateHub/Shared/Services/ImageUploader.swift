@@ -17,11 +17,11 @@ struct ImageUploader {
     ///   - completion: @escaping(String) -> Void
     ///
     static func uploadImage(image: UIImage) async throws -> String {
-        try await withCheckedThrowingContinuation { continuation in
+        return try await withCheckedThrowingContinuation { continuation in
             let filename = UUID().uuidString
-            let ref = Storage.storage().reference(withPath: "/profile_images/\(filename)")
+            let ref = Storage.storage().reference().child("profile_images/\(filename)")
 
-            guard let imageData = image.jpegData(compressionQuality: 0.75) else {
+            guard let imageData = image.jpegData(compressionQuality: 0.8) else {
                 continuation.resume(throwing: NSError(domain: "Upload", code: -1, userInfo: [NSLocalizedDescriptionKey: "Invalid image data"]))
                 return
             }

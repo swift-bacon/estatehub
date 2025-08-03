@@ -9,5 +9,5 @@ import UIKit
 struct AuthCredentials {
     let email: String
     let password: String
-    let profileImage: UIImage
+    let profileImage: UIImage?
 }

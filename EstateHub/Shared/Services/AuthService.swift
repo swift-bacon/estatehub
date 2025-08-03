@@ -38,8 +38,13 @@ struct AuthService {
     ///   - completion: @escaping(Error?) -> Void
     ///
     static func registerUser(credentials: AuthCredentials) async throws {
-        let imageURL = try await ImageUploader.uploadImage(image: credentials.profileImage)
-
+        
+//        var imageUrl: String?
+//        
+//        if (credentials.profileImage != nil) {
+//            imageUrl = try await ImageUploader.uploadImage(image: credentials.profileImage!)
+//        }
+//        
         let authResult: AuthDataResult = try await withCheckedThrowingContinuation { continuation in
             Auth.auth().createUser(withEmail: credentials.email, password: credentials.password) { result, error in
                 if let error = error {
@@ -56,7 +61,7 @@ struct AuthService {
 
         let userData: [String: Any] = [
             "email": credentials.email,
-            "profileImageURL": imageURL,
+            "profileImageURL": "",
             "uid": uid
         ]
 
@@ -69,5 +74,12 @@ struct AuthService {
                 }
             }
         }
+    }
+    
+    ///
+    /// Logout
+    ///
+    static func logOut() {
+        try? Auth.auth().signOut()
     }
 }
