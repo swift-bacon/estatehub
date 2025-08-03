@@ -17,15 +17,7 @@ class SignUpAvatarViewController: UIViewController {
     
     private var titleText = BigTitleLabel(labelText: "Registration")
     private var descriptionText = DescriptionLabel(labelText: "Set your avatar image")
-    private var avatarImageView: UIImageView = {
-        let imageView = UIImageView()
-        imageView.contentMode = .scaleAspectFill
-        imageView.clipsToBounds = true
-        imageView.tintColor = .systemGray4
-        imageView.image = UIImage(systemName: "person.circle")
-        imageView.layer.cornerRadius = imageView.frame.size.width / 2
-        return imageView
-    }()
+    private var avatarImageView = AvatarImageView(frame: .zero)
     private lazy var registerButton = DefaultButton(title: "Register", target: self, action: #selector(registerButtonTapped))
     
     // MARK: - View lifecycle
@@ -34,11 +26,6 @@ class SignUpAvatarViewController: UIViewController {
         super.viewDidLoad()
         
         setupLayout()
-    }
-    
-    override func viewDidLayoutSubviews() {
-        super.viewDidLayoutSubviews()
-        avatarImageView.layer.cornerRadius = avatarImageView.bounds.width / 2
     }
     
     // MARK: - Setups
@@ -137,7 +124,7 @@ extension SignUpAvatarViewController: UIImagePickerControllerDelegate {
             return
         }
         picker.dismiss(animated: true, completion: nil)
-        avatarImageView.image = selectedImage
+        avatarImageView.setImage(selectedImage)
     }
     
     func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
