@@ -21,10 +21,28 @@ func isValidEmail(_ email: String) -> Bool {
 /// Is password valid
 ///
 /// - Parameter password: String
-/// - Returns: Bool
+/// - Returns: String?
 ///
-func isPasswordValid(_ password: String) -> Bool {
-    let passwordRegex = "^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&<>*~:`-]).{8,}$"
-        let passwordPredicate = NSPredicate(format: "SELF MATCHES %@", passwordRegex)
-        return passwordPredicate.evaluate(with: password.trimmingCharacters(in: .whitespaces))
+func isPasswordValid(_ password: String) -> String? {
+    if password.count < 8 {
+        return "Password must be at least 8 characters long"
+    }
+    
+    if password.range(of: "[A-Z]", options: .regularExpression) == nil {
+        return "Password must contain at least one uppercase letter"
+    }
+    
+    if password.range(of: "[a-z]", options: .regularExpression) == nil {
+        return "Password must contain at least one lowercase letter"
+    }
+    
+    if password.range(of: "[0-9]", options: .regularExpression) == nil {
+        return "Password must contain at least one number"
+    }
+    
+    if password.range(of: "[#?!@$%^&<>*~:`-]", options: .regularExpression) == nil {
+        return "Password must contain at least one special character"
+    }
+    
+    return nil
 }

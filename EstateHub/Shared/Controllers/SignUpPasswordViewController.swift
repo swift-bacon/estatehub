@@ -74,11 +74,15 @@ class SignUpPasswordViewController: UIViewController {
             return
         }
         
-        if isPasswordValid(password) {
-           
-        } else {
-            Alerts.showError(on: self, message: "Wrong password format")
+        if let passwordError = isPasswordValid(password) {
+            Alerts.showError(on: self, message: passwordError)
+            return
         }
+        
+        let signUpAvatarViewController = SignUpAvatarViewController()
+        signUpAvatarViewController.email = email
+        signUpAvatarViewController.password = password
+        navigationController?.pushViewController(signUpAvatarViewController, animated: true)
     }
     
 }

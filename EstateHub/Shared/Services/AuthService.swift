@@ -15,10 +15,19 @@ struct AuthService {
     /// - Parameters:
     ///   - email: String
     ///   - password: String
-    ///   - completion: @escaping(AuthDataResult?, Error?) -> Void
     ///
-    static func logUserIn(email: String, password: String, completion: @escaping(AuthDataResult?, Error?) -> Void) {
-        Auth.auth().signIn(withEmail: email, password: password, completion: completion)
+    static func logUserIn(email: String, password: String) async throws -> AuthDataResult {
+        return try await withCheckedThrowingContinuation { continuation in
+            Auth.auth().signIn(withEmail: email, password: password) { result, error in
+                if let error = error {
+                    continuation.resume(throwing: error)
+                } else if let result = result {
+                    continuation.resume(returning: result)
+                } else {
+                    continuation.resume(throwing: NSError(domain: "UnknownError", code: -1))
+                }
+            }
+        }
     }
     
     ///
@@ -28,20 +37,36 @@ struct AuthService {
     ///   - credentials: AuthCredentials
     ///   - completion: @escaping(Error?) -> Void
     ///
-    static func registerUser(credentials: AuthCredentials, completion: @escaping(Error?) -> Void) {
-        ImageUploader.uploadImage(image: credentials.profileImage) { imageURL in
+    static func registerUser(credentials: AuthCredentials) async throws {
+        let imageURL = try await ImageUploader.uploadImage(image: credentials.profileImage)
+
+        let authResult: AuthDataResult = try await withCheckedThrowingContinuation { continuation in
             Auth.auth().createUser(withEmail: credentials.email, password: credentials.password) { result, error in
                 if let error = error {
-                    print("Err: Failed to register user \(error.localizedDescription)")
-                    return
+                    continuation.resume(throwing: error)
+                } else if let result = result {
+                    continuation.resume(returning: result)
+                } else {
+                    continuation.resume(throwing: NSError(domain: "Register", code: -1, userInfo: [NSLocalizedDescriptionKey: "Unknown registration error"]))
                 }
-                
-                guard let uid = result?.user.uid else {return}
-                let data: [String: Any] = ["email": credentials.email,
-                                           "profileImageURL": imageURL,
-                                           "uid": uid,]
-                
-                Firestore.firestore().collection("users").document(uid).setData(data, completion: completion)
+            }
+        }
+
+        let uid = authResult.user.uid
+
+        let userData: [String: Any] = [
+            "email": credentials.email,
+            "profileImageURL": imageURL,
+            "uid": uid
+        ]
+
+        try await withCheckedThrowingContinuation { (continuation: CheckedContinuation<Void, Error>) in
+            Firestore.firestore().collection("users").document(uid).setData(userData) { error in
+                if let error = error {
+                    continuation.resume(throwing: error)
+                } else {
+                    continuation.resume()
+                }
             }
         }
     }

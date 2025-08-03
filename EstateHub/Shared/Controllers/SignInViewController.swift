@@ -10,10 +10,12 @@ import UIKit
 class SignInViewController: UIViewController {
     
     // MARK: - UI Elements
-    
+    private var titleText = BigTitleLabel(labelText: "Login to \(appName)")
+    private var descriptionText = DescriptionLabel(labelText: "Enter to the hub with best estates adverts list")
+    private let textFieldsView = UIView()
     private let emailTextField =  DefaultTextField(placeholder: "Enter e-mail address")
     private let passwordTextField =  DefaultTextField(placeholder: "Enter password")
-    private lazy var nextButton = DefaultButton(title: "Login", target: self, action: #selector(nextButtonTapped))
+    private lazy var loginButton = DefaultButton(title: "Login", target: self, action: #selector(loginButtonTapped))
     
     // MARK: - View lifecycle
     
@@ -29,48 +31,81 @@ class SignInViewController: UIViewController {
     /// Setup layout
     ///
     private func setupLayout() {
-        view.addSubview(emailTextField)
-        view.addSubview(passwordTextField)
-        view.addSubview(nextButton)
+        view.addSubview(titleText)
+        view.addSubview(descriptionText)
+        view.addSubview(textFieldsView)
+        textFieldsView.addSubview(emailTextField)
+        textFieldsView.addSubview(passwordTextField)
+        view.addSubview(loginButton)
         
+        titleText.translatesAutoresizingMaskIntoConstraints = false
+        descriptionText.translatesAutoresizingMaskIntoConstraints = false
+        textFieldsView.translatesAutoresizingMaskIntoConstraints = false
         emailTextField.translatesAutoresizingMaskIntoConstraints = false
         passwordTextField.translatesAutoresizingMaskIntoConstraints = false
-        nextButton.translatesAutoresizingMaskIntoConstraints = false
+        loginButton.translatesAutoresizingMaskIntoConstraints = false
         
         NSLayoutConstraint.activate([
-            emailTextField.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            emailTextField.centerYAnchor.constraint(equalTo: view.centerYAnchor),
-            emailTextField.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 24),
-            emailTextField.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -24),
+            titleText.topAnchor.constraint(equalTo: view.topAnchor, constant: 150),
+            titleText.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 24),
+            titleText.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -24),
+            
+            descriptionText.topAnchor.constraint(equalTo: titleText.bottomAnchor, constant: 20),
+            descriptionText.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 24),
+            descriptionText.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -24),
+            
+            textFieldsView.heightAnchor.constraint(equalToConstant: 200),
+            textFieldsView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            textFieldsView.centerYAnchor.constraint(equalTo: view.centerYAnchor),
+            textFieldsView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 24),
+            textFieldsView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -24),
+            
+            emailTextField.topAnchor.constraint(equalTo: textFieldsView.topAnchor, constant: 0),
+            emailTextField.leadingAnchor.constraint(equalTo: textFieldsView.leadingAnchor, constant: 0),
+            emailTextField.trailingAnchor.constraint(equalTo: textFieldsView.trailingAnchor, constant: 0),
             
             passwordTextField.topAnchor.constraint(equalTo: emailTextField.bottomAnchor, constant: 24),
-            passwordTextField.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 24),
-            passwordTextField.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -24),
+            passwordTextField.leadingAnchor.constraint(equalTo: textFieldsView.leadingAnchor, constant: 0),
+            passwordTextField.trailingAnchor.constraint(equalTo: textFieldsView.trailingAnchor, constant: 0),
             
-            nextButton.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 64),
-            nextButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -64),
-            nextButton.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -30),
-            nextButton.heightAnchor.constraint(equalToConstant: 40)
+            loginButton.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 64),
+            loginButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -64),
+            loginButton.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -30),
+            loginButton.heightAnchor.constraint(equalToConstant: 40)
         ])
     }
     
     // MARK: - Actions
     
-    @objc private func nextButtonTapped() {
+    @objc private func loginButtonTapped() async  {
+        await logIn()
+    }
+    
+    // MARK: - Authentication
+    
+    ///
+    /// Login user
+    ///
+    private func logIn() async {
         guard let email = emailTextField.text, !email.isEmpty else {
             Alerts.showError(on: self, message: "Enter e-mail address")
             return
         }
         
-        if isValidEmail(email) {
-            print("Email correct: \(email)")
-        } else {
-            Alerts.showError(on: self, message: "Wrong e-mail address")
-        }
-        
         guard let password = passwordTextField.text, !password.isEmpty else {
             Alerts.showError(on: self, message: "Enter password")
             return
+        }
+        
+        do {
+            let result = try await AuthService.logUserIn(email: email, password: password)
+            
+            if result.credential != nil {
+                navigationController?.pushViewController(DashboardViewController(), animated: true)
+            }
+            
+        } catch {
+            Alerts.showError(on: self, message: "Login error: \(error.localizedDescription)")
         }
     }
     
