@@ -17,7 +17,15 @@ class SignUpAvatarViewController: UIViewController {
     
     private var titleText = BigTitleLabel(labelText: "Registration")
     private var descriptionText = DescriptionLabel(labelText: "Set your avatar image")
-    private var avatarImageView = UIImageView()
+    private var avatarImageView: UIImageView = {
+        let imageView = UIImageView()
+        imageView.contentMode = .scaleAspectFill
+        imageView.clipsToBounds = true
+        imageView.tintColor = .systemGray4
+        imageView.image = UIImage(systemName: "person.circle")
+        imageView.layer.cornerRadius = imageView.frame.size.width / 2
+        return imageView
+    }()
     private lazy var registerButton = DefaultButton(title: "Register", target: self, action: #selector(registerButtonTapped))
     
     // MARK: - View lifecycle
@@ -28,6 +36,11 @@ class SignUpAvatarViewController: UIViewController {
         setupLayout()
     }
     
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        avatarImageView.layer.cornerRadius = avatarImageView.bounds.width / 2
+    }
+    
     // MARK: - Setups
     
     private func setupLayout() {
@@ -36,6 +49,11 @@ class SignUpAvatarViewController: UIViewController {
         view.addSubview(titleText)
         view.addSubview(descriptionText)
         view.addSubview(avatarImageView)
+        
+        avatarImageView.isUserInteractionEnabled = true
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(presentActionSheet))
+        avatarImageView.addGestureRecognizer(tapGesture)
+        
         view.addSubview(registerButton)
         
         titleText.translatesAutoresizingMaskIntoConstraints = false
@@ -52,14 +70,14 @@ class SignUpAvatarViewController: UIViewController {
             descriptionText.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 24),
             descriptionText.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -24),
             
+            avatarImageView.heightAnchor.constraint(equalToConstant: 200),
+            avatarImageView.widthAnchor.constraint(equalToConstant: 200),
             avatarImageView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
             avatarImageView.centerYAnchor.constraint(equalTo: view.centerYAnchor),
-            avatarImageView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 24),
-            avatarImageView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -24),
             
             registerButton.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 64),
             registerButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -64),
-            registerButton.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -30),
+            registerButton.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -60),
             registerButton.heightAnchor.constraint(equalToConstant: 40)
         ])
     }
@@ -78,7 +96,9 @@ class SignUpAvatarViewController: UIViewController {
         }
     }
     
-    private func presentActionSheet() {
+    // MARK: - Camera and media library
+    
+    @objc private func presentActionSheet() {
         let actionSheet = UIAlertController(title: "Profile Picture", message: "How would you like to select a picture", preferredStyle: .actionSheet)
         actionSheet.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
         actionSheet.addAction(UIAlertAction(title: "Take Photo", style: .default, handler: { [weak self] _ in

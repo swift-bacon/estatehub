@@ -70,33 +70,33 @@ class SignInViewController: UIViewController {
             
             loginButton.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 64),
             loginButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -64),
-            loginButton.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -30),
+            loginButton.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -60),
             loginButton.heightAnchor.constraint(equalToConstant: 40)
         ])
     }
     
     // MARK: - Actions
     
-    @objc private func loginButtonTapped() async  {
-        await logIn()
+    @objc private func loginButtonTapped() {
+        Task { [weak self] in
+            await self?.handleLogin()
+        }
     }
     
-    // MARK: - Authentication
-    
     ///
-    /// Login user
+    /// Handle login method
     ///
-    private func logIn() async {
+    private func handleLogin() async {
         guard let email = emailTextField.text, !email.isEmpty else {
             Alerts.showError(on: self, message: "Enter e-mail address")
             return
         }
-        
+
         guard let password = passwordTextField.text, !password.isEmpty else {
             Alerts.showError(on: self, message: "Enter password")
             return
         }
-        
+
         do {
             let result = try await AuthService.logUserIn(email: email, password: password)
             

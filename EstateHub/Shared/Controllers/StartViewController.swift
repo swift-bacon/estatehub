@@ -25,13 +25,9 @@ class StartViewController: UIViewController {
     
     // MARK: - Actions
     
-    @IBAction func signInButtonDidTapped(_ sender: Any) {
-        debugPrint("test")
-    }
+    @IBAction func signInButtonDidTapped(_ sender: Any) {}
     
-    @IBAction func singUpButtonDidTapped(_ sender: Any) {
-        debugPrint("test2")
-    }
+    @IBAction func singUpButtonDidTapped(_ sender: Any) {}
     
     // MARK: - Setups
     

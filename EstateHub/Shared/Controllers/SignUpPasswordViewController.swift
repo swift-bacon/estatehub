@@ -61,7 +61,7 @@ class SignUpPasswordViewController: UIViewController {
             
             nextButton.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 64),
             nextButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -64),
-            nextButton.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -30),
+            nextButton.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -60),
             nextButton.heightAnchor.constraint(equalToConstant: 40)
         ])
     }
