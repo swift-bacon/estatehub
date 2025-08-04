@@ -12,9 +12,17 @@ class AdvertsViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        layoutSetups()
     }
     
     deinit {
         print("\(String(describing: self)) deinit")
+    }
+    
+    // MARK: - Setups
+    
+    private func layoutSetups() {
+        view.backgroundColor = .white
     }
 }

@@ -16,7 +16,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         let window = UIWindow(windowScene: scene as! UIWindowScene)
            
            let rootVC: UIViewController
-        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+            let storyboard = UIStoryboard(name: "Main", bundle: nil)
         
            if Auth.auth().currentUser != nil {
                let dashboardVC = storyboard.instantiateViewController(withIdentifier: "DashboardViewController")

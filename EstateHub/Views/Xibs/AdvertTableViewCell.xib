@@ -66,14 +66,16 @@
                 <constraints>
                     <constraint firstItem="hgi-qw-R5s" firstAttribute="leading" secondItem="fW5-tc-8Ej" secondAttribute="leading" id="EBC-o6-68o"/>
                     <constraint firstItem="hgi-qw-R5s" firstAttribute="top" secondItem="fW5-tc-8Ej" secondAttribute="top" id="Fe7-ne-Wta"/>
-                    <constraint firstAttribute="bottom" secondItem="hgi-qw-R5s" secondAttribute="bottom" id="blP-AP-1ik"/>
+                    <constraint firstAttribute="bottom" secondItem="hgi-qw-R5s" secondAttribute="bottom" constant="15" id="blP-AP-1ik"/>
                     <constraint firstAttribute="trailing" secondItem="hgi-qw-R5s" secondAttribute="trailing" id="ihm-xn-EoI"/>
                 </constraints>
             </tableViewCellContentView>
             <connections>
+                <outlet property="advertDescriptionLabel" destination="yCv-Fd-QfU" id="xnT-5c-9wW"/>
                 <outlet property="advertImageView" destination="KjU-0N-IMz" id="baV-XM-sUd"/>
                 <outlet property="advertPriceLabel" destination="Gxj-wL-5ra" id="5ZN-ue-qEj"/>
                 <outlet property="advertTitleLabel" destination="9nM-Ey-dPv" id="ZMj-ra-1CM"/>
+                <outlet property="bgView" destination="hgi-qw-R5s" id="asK-bV-378"/>
             </connections>
             <point key="canvasLocation" x="-353.43511450381681" y="-1679.2253521126761"/>
         </tableViewCell>

@@ -12,4 +12,5 @@ struct Advert {
     var description: String
     var address: String
     var expirationDate: String
+    var isPromoted: Bool
 }
