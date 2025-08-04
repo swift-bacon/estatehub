@@ -6,7 +6,7 @@
 //
 import UIKit
 
-class AddAvertViewController: UIViewController {
+class AddAdvertViewController: UIViewController {
     
     // MARK: - View lifecycle
     

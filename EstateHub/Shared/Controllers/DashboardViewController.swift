@@ -78,6 +78,12 @@ class DashboardViewController: UIViewController {
     }
     @IBOutlet weak var advertsTableViewHeightConstraint: NSLayoutConstraint!
     
+    // MARK: - Variables
+    
+    private var sideMenuVC: SideMenuViewController!
+    private var isMenuVisible = false
+    private var dimmingView: UIView!
+    
     // MARK: - View lifecycle
     
     override func viewDidLoad() {
@@ -112,6 +118,8 @@ class DashboardViewController: UIViewController {
         view.backgroundColor = .white
         title = appName
         
+        setupSideMenu()
+        
         setupAddAdvertButton()
         setupProfileButton()
     }
@@ -142,6 +150,33 @@ class DashboardViewController: UIViewController {
         
         let barButtonItem = UIBarButtonItem(customView: profileButton)
         navigationItem.rightBarButtonItem = barButtonItem
+        
+        let menuButton = UIBarButtonItem(
+            image: UIImage(systemName: "line.3.horizontal"),
+            style: .plain,
+            target: self,
+            action: #selector(toggleMenu)
+        )
+        
+        navigationItem.leftBarButtonItem = menuButton
+    }
+    
+    private func setupSideMenu() {
+        sideMenuVC = SideMenuViewController()
+        sideMenuVC.delegate = self
+        let menuWidth = view.frame.width * 0.7
+        sideMenuVC.view.frame = CGRect(x: -menuWidth, y: 0, width: menuWidth, height: view.frame.height)
+        
+        dimmingView = UIView(frame: view.bounds)
+        dimmingView.backgroundColor = UIColor.black.withAlphaComponent(0.3)
+        dimmingView.alpha = 0
+        let tap = UITapGestureRecognizer(target: self, action: #selector(toggleMenu))
+        dimmingView.addGestureRecognizer(tap)
+        
+        addChild(sideMenuVC)
+        view.addSubview(dimmingView)
+        view.addSubview(sideMenuVC.view)
+        sideMenuVC.didMove(toParent: self)
     }
     
     // MARK: - Observers
@@ -164,10 +199,56 @@ class DashboardViewController: UIViewController {
         navigationController?.pushViewController(userProfileViewController, animated: true)
     }
     
+    @objc private func toggleMenu() {
+        let isOpening = !isMenuVisible
+        let menuWidth = sideMenuVC.view.frame.width
+
+        UIView.animate(withDuration: 0.3, animations: {
+            self.sideMenuVC.view.frame.origin.x = isOpening ? 0 : -menuWidth
+            self.dimmingView.alpha = isOpening ? 1 : 0
+        })
+        
+        isMenuVisible.toggle()
+    }
+    
     @IBAction func addAdvertButtonDidTapped(_ sender: Any) {
-        let addAdvertViewController = AddAvertViewController()
+        let addAdvertViewController = AddAdvertViewController()
         navigationController?.pushViewController(addAdvertViewController, animated: true)
     }
+    
+    private func handleLogout() {
+        do {
+            try AuthService.logOut()
+            
+            let startVC = StartViewController()
+            let nav = UINavigationController(rootViewController: startVC)
+            if let sceneDelegate = view.window?.windowScene?.delegate as? SceneDelegate {
+                sceneDelegate.window?.rootViewController = nav
+            }
+
+        } catch {
+            Alerts.showError(on: self, message: "Logout error: \(error.localizedDescription)")
+        }
+    }
+    
+}
+
+extension DashboardViewController: SideMenuDelegate {
+    
+    func didSelectMenuItem(_ item: SideMenuViewController.MenuItem) {
+            toggleMenu()
+
+            switch item {
+            case .addAdvert:
+                navigationController?.pushViewController(AddAdvertViewController(), animated: true)
+            case .profile:
+                navigationController?.pushViewController(UserProfileViewController(), animated: true)
+            case .settings:
+                navigationController?.pushViewController(SettingsViewController(), animated: true)
+            case .logout:
+                handleLogout()
+            }
+        }
     
 }
 

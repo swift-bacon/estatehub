@@ -39,7 +39,7 @@ class StartViewController: UIViewController {
     /// Setup view
     ///
     func setupView() {
-        infoLabel.text = "Step into the world of real estate — find your next place."
+        infoLabel?.text = "Step into the world of real estate — find your next place."
     }
 
 }

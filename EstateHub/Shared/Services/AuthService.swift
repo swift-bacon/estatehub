@@ -79,7 +79,7 @@ struct AuthService {
     ///
     /// Logout
     ///
-    static func logOut() {
-        try? Auth.auth().signOut()
+    static func logOut() throws {
+        try Auth.auth().signOut()
     }
 }

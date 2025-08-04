@@ -16,12 +16,14 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         let window = UIWindow(windowScene: scene as! UIWindowScene)
            
            let rootVC: UIViewController
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        
            if Auth.auth().currentUser != nil {
-               let storyboard = UIStoryboard(name: "Main", bundle: nil)
                let dashboardVC = storyboard.instantiateViewController(withIdentifier: "DashboardViewController")
                rootVC = dashboardVC
            } else {
-               rootVC = StartViewController()
+               let startVC = storyboard.instantiateViewController(withIdentifier: "StartViewController")
+               rootVC = startVC
            }
 
            window.rootViewController = UINavigationController(rootViewController: rootVC)
