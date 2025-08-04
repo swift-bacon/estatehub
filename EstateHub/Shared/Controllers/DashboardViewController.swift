@@ -58,7 +58,7 @@ class DashboardViewController: UIViewController {
             layout.scrollDirection = .horizontal
             layout.minimumLineSpacing = 8
             layout.minimumInteritemSpacing = 0
-            layout.sectionInset = UIEdgeInsets(top: 0, left: 16, bottom: 0, right: 16)
+            layout.sectionInset = UIEdgeInsets(top: 0, left: 24, bottom: 0, right: 24)
 
             advertsCollectionView.collectionViewLayout = layout
         }

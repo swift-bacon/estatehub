@@ -225,7 +225,7 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="fDa-Qg-E7t">
-                                                <rect key="frame" x="24" y="255" width="345" height="150"/>
+                                                <rect key="frame" x="0.0" y="255" width="393" height="150"/>
                                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="150" id="4mq-FO-fWb"/>
@@ -276,9 +276,9 @@
                                             <constraint firstAttribute="trailing" secondItem="Ac6-p7-osl" secondAttribute="trailing" constant="24" id="Zgo-Zv-kiY"/>
                                             <constraint firstItem="Ac6-p7-osl" firstAttribute="top" secondItem="IxE-AW-WWR" secondAttribute="bottom" constant="25" id="aBC-vn-lhq"/>
                                             <constraint firstItem="IxE-AW-WWR" firstAttribute="leading" secondItem="bsr-bs-acG" secondAttribute="leading" constant="24" id="deZ-LY-U9G"/>
-                                            <constraint firstItem="fDa-Qg-E7t" firstAttribute="leading" secondItem="bsr-bs-acG" secondAttribute="leading" constant="24" id="eUI-nA-tO6"/>
+                                            <constraint firstItem="fDa-Qg-E7t" firstAttribute="leading" secondItem="bsr-bs-acG" secondAttribute="leading" id="eUI-nA-tO6"/>
                                             <constraint firstAttribute="trailing" secondItem="2Wm-BJ-YsM" secondAttribute="trailing" constant="24" id="fBJ-pN-RHh"/>
-                                            <constraint firstAttribute="trailing" secondItem="fDa-Qg-E7t" secondAttribute="trailing" constant="24" id="i0l-l4-jBW"/>
+                                            <constraint firstAttribute="trailing" secondItem="fDa-Qg-E7t" secondAttribute="trailing" id="i0l-l4-jBW"/>
                                             <constraint firstItem="m7T-R1-f6E" firstAttribute="top" secondItem="2Wm-BJ-YsM" secondAttribute="bottom" constant="25" id="mcO-Ur-qiQ"/>
                                             <constraint firstAttribute="trailing" secondItem="m7T-R1-f6E" secondAttribute="trailing" constant="24" id="sAO-8o-RFh"/>
                                             <constraint firstItem="IxE-AW-WWR" firstAttribute="top" secondItem="bsr-bs-acG" secondAttribute="top" constant="25" id="yk3-mC-828"/>

@@ -7,9 +7,9 @@
 import UIKit
 
 struct Advert {
+    var id: String?
     var name: String
     var description: String
     var address: String
     var expirationDate: String
-    var image: UIImage
 }
