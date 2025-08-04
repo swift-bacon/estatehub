@@ -325,31 +325,61 @@
             </objects>
             <point key="canvasLocation" x="2734" y="-694"/>
         </scene>
-        <!--Adverts View Controller-->
-        <scene sceneID="BLe-aG-w1o">
-            <objects>
-                <viewController id="Pt4-pW-pLJ" customClass="AdvertsViewController" customModule="EstateHub" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="K3q-ha-Js7">
-                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <viewLayoutGuide key="safeArea" id="G3j-ng-oPy"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                    </view>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="qBv-aL-zUd" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="4440" y="-159"/>
-        </scene>
         <!--User Profile View Controller-->
         <scene sceneID="zWg-LP-Bv5">
             <objects>
-                <viewController id="n6J-uj-qeh" customClass="UserProfileViewController" customModule="EstateHub" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="UserProfileViewController" id="n6J-uj-qeh" customClass="UserProfileViewController" customModule="EstateHub" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="CyB-wg-ToP">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Ufr-VU-zJn">
+                                <rect key="frame" x="136.66666666666666" y="109" width="119.99999999999997" height="120"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="120" id="cX9-Ec-r0x"/>
+                                    <constraint firstAttribute="height" constant="120" id="yAg-3E-0u6"/>
+                                </constraints>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xaP-0N-XWf">
+                                <rect key="frame" x="24" y="264" width="345" height="24"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NTm-k1-akd" customClass="DefaultButton" customModule="EstateHub" customModuleProvider="target">
+                                <rect key="frame" x="64" y="718" width="265" height="40"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="bZi-IO-jzi"/>
+                                </constraints>
+                                <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                <buttonConfiguration key="configuration" style="filled" title="Change email">
+                                    <color key="baseForegroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </buttonConfiguration>
+                                <connections>
+                                    <action selector="onChangeEmailDidTapped:" destination="n6J-uj-qeh" eventType="touchUpInside" id="ROQ-0P-Zpv"/>
+                                    <action selector="signInButtonDidTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="7qN-Hv-e2Y"/>
+                                </connections>
+                            </button>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="DiE-wa-afC"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="DiE-wa-afC" firstAttribute="bottom" secondItem="NTm-k1-akd" secondAttribute="bottom" constant="60" id="9XP-zG-V6q"/>
+                            <constraint firstItem="Ufr-VU-zJn" firstAttribute="centerX" secondItem="DiE-wa-afC" secondAttribute="centerX" id="Ck4-Ov-m5M"/>
+                            <constraint firstItem="NTm-k1-akd" firstAttribute="leading" secondItem="DiE-wa-afC" secondAttribute="leading" constant="64" id="Ogy-gE-tS3"/>
+                            <constraint firstItem="Ufr-VU-zJn" firstAttribute="top" secondItem="DiE-wa-afC" secondAttribute="top" constant="50" id="XAR-uI-5vB"/>
+                            <constraint firstItem="DiE-wa-afC" firstAttribute="trailing" secondItem="NTm-k1-akd" secondAttribute="trailing" constant="64" id="a7C-Rf-JRd"/>
+                            <constraint firstItem="DiE-wa-afC" firstAttribute="trailing" secondItem="xaP-0N-XWf" secondAttribute="trailing" constant="24" id="ese-g0-eLZ"/>
+                            <constraint firstItem="xaP-0N-XWf" firstAttribute="leading" secondItem="DiE-wa-afC" secondAttribute="leading" constant="24" id="rzt-mZ-6ha"/>
+                            <constraint firstItem="xaP-0N-XWf" firstAttribute="top" secondItem="Ufr-VU-zJn" secondAttribute="bottom" constant="35" id="wlU-dx-FcG"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="avatarImageView" destination="Ufr-VU-zJn" id="pwm-Cm-GGg"/>
+                        <outlet property="changeEmailButton" destination="NTm-k1-akd" id="I5O-MN-sE6"/>
+                        <outlet property="userEmailLabel" destination="xaP-0N-XWf" id="11t-Pd-g9T"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="yym-C5-AjD" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>

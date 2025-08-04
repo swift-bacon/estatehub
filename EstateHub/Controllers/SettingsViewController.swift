@@ -22,6 +22,9 @@ class SettingsViewController: UIViewController {
     
     // MARK: - Setups
     
+    ///
+    /// Layout setups
+    /// 
     private func layoutSetups() {
         view.backgroundColor = .white
     }

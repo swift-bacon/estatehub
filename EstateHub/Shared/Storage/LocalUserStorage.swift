@@ -8,7 +8,7 @@ import UIKit
 import CoreData
 
 struct LocalUser {
-    let email: String
+    var email: String
     let uid: String
     let avatar: UIImage?
 }
@@ -63,6 +63,30 @@ class LocalUserStorage {
             print("Failed to fetch user: \(error)")
         }
         return nil
+    }
+    
+    //MARK: - Update email
+    
+    func updateEmail(newEmail: String) {
+        guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else { return }
+        let context = appDelegate.persistentContainer.viewContext
+        
+        let fetchRequest: NSFetchRequest<UserModel> = UserModel.fetchRequest()
+        
+        do {
+            let users = try context.fetch(fetchRequest)
+            
+            if let user = users.first {
+                user.email = newEmail
+                
+                try context.save()
+                print("Email updated in CoreData")
+            } else {
+                print("No user found in CoreData")
+            }
+        } catch {
+            print("Failed to update email in CoreData: \(error.localizedDescription)")
+        }
     }
     
     // MARK: - Update Avatar

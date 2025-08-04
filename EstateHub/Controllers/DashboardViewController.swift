@@ -72,6 +72,7 @@ class DashboardViewController: UIViewController {
         didSet {
             advertsTableView.dataSource = self
             advertsTableView.delegate = self
+            advertsTableView.allowsSelection = false
             advertsTableView.rowHeight = UITableView.automaticDimension
             advertsTableView.register(AdvertTableViewCell.ViewConfiguration.default.nib, forCellReuseIdentifier: CellIdentifier.advertTableViewCell.rawValue)
         }
@@ -84,12 +85,25 @@ class DashboardViewController: UIViewController {
     private var isMenuVisible = false
     private var dimmingView: UIView!
     
+    private var allAdverts: [Advert] = []
+    private var promotedAdverts: [Advert] {
+        return allAdverts.filter { $0.isPromoted }
+    }
+    
     // MARK: - View lifecycle
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         setupLayout()
+        loadAdverts()
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        
+        setupLayout()
+        loadAdverts()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -114,6 +128,9 @@ class DashboardViewController: UIViewController {
     
     // MARK: - Setups
     
+    ///
+    /// Setup layout
+    /// 
     private func setupLayout() {
         view.backgroundColor = .white
         title = appName
@@ -161,6 +178,9 @@ class DashboardViewController: UIViewController {
         navigationItem.leftBarButtonItem = menuButton
     }
     
+    ///
+    /// Setup side menu
+    ///
     private func setupSideMenu() {
         sideMenuVC = SideMenuViewController()
         sideMenuVC.delegate = self
@@ -192,13 +212,38 @@ class DashboardViewController: UIViewController {
         }
     }
     
+    // MARK: - Data
+    
+    ///
+    /// Load adverts
+    ///
+    private func loadAdverts() {
+        Task {
+            do {
+                let adverts = try await AdvertService.fetch()
+                self.allAdverts = adverts
+                self.advertsTableView.reloadData()
+                self.advertsCollectionView.reloadData()
+            } catch {
+                print("Error on data loading: \(error)")
+            }
+        }
+    }
+    
     // MARK: - Actions
     
+    ///
+    /// Profile button tapped
+    ///
     @objc private func profileButtonTapped() {
-        let userProfileViewController = UserProfileViewController()
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let userProfileViewController = storyboard.instantiateViewController(withIdentifier: "UserProfileViewController")
         navigationController?.pushViewController(userProfileViewController, animated: true)
     }
     
+    ///
+    /// Toggle menu
+    ///
     @objc private func toggleMenu() {
         let isOpening = !isMenuVisible
         let menuWidth = sideMenuVC.view.frame.width
@@ -216,14 +261,20 @@ class DashboardViewController: UIViewController {
         navigationController?.pushViewController(addAdvertViewController, animated: true)
     }
     
+    ///
+    /// Handle logout
+    ///
     private func handleLogout() {
         do {
             try AuthService.logOut()
             
-            let startVC = StartViewController()
-            let nav = UINavigationController(rootViewController: startVC)
-            if let sceneDelegate = view.window?.windowScene?.delegate as? SceneDelegate {
-                sceneDelegate.window?.rootViewController = nav
+            let storyboard = UIStoryboard(name: "Main", bundle: nil)
+            let startVC = storyboard.instantiateViewController(withIdentifier: "StartViewController")
+            let navVC = UINavigationController(rootViewController: startVC)
+            
+            if let sceneDelegate = UIApplication.shared.connectedScenes.first?.delegate as? SceneDelegate {
+                sceneDelegate.window?.rootViewController = navVC
+                sceneDelegate.window?.makeKeyAndVisible()
             }
 
         } catch {
@@ -232,6 +283,8 @@ class DashboardViewController: UIViewController {
     }
     
 }
+
+// MARK: - SideMenuDelegate
 
 extension DashboardViewController: SideMenuDelegate {
     
@@ -252,6 +305,8 @@ extension DashboardViewController: SideMenuDelegate {
     
 }
 
+// MARK: - UICollectioNViewDelegate, UICollectionViewDataSource
+
 extension DashboardViewController: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     
     func numberOfSections(in collectionView: UICollectionView) -> Int {
@@ -259,26 +314,29 @@ extension DashboardViewController: UICollectionViewDelegate, UICollectionViewDat
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 10
+        return promotedAdverts.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: CellIdentifier.advertCollectionViewCell.rawValue, for: indexPath) as? AdvertCollectionViewCell else { return UICollectionViewCell() }
         
-        cell.advertDescriptionLabel.text = "sdasdasdasdasdasd"
-        cell.advertTitlaLabel.text = "dasdasdasdasd"
-        cell.advertPriceLabel.text = "999 999 PLN"
+        let advert = promotedAdverts[indexPath.item]
+        cell.advertDescriptionLabel.text = advert.description
+        cell.advertTitlaLabel.text = advert.name
+        cell.advertPriceLabel.text = "\(String(advert.price)) PLN"
         
         return cell
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         let width = collectionView.frame.width * 0.8
-        let height = collectionView.frame.height - 10
+        let height = 150.0
         return CGSize(width: width, height: height)
     }
     
 }
+
+// MARK: - UITableViewDelegate, UITableViewDataSource
 
 extension DashboardViewController: UITableViewDelegate, UITableViewDataSource {
     
@@ -287,7 +345,7 @@ extension DashboardViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 10
+        return allAdverts.count
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
@@ -301,7 +359,10 @@ extension DashboardViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: CellIdentifier.advertTableViewCell.rawValue, for: indexPath) as? AdvertTableViewCell else { return UITableViewCell() }
         
-        cell.advertTitleLabel.text = "test"
+        let advert = allAdverts[indexPath.item]
+        cell.advertTitleLabel.text = advert.name
+        cell.advertDescriptionLabel.text = advert.description
+        cell.advertPriceLabel.text = "\(String(advert.price)) PLN"
         
         return cell
     }

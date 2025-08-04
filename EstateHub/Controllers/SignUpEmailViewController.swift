@@ -69,6 +69,9 @@ class SignUpEmailViewController: UIViewController {
     
     // MARK: - Actions
     
+    ///
+    /// Next button tapped
+    /// 
     @objc private func nextButtonTapped() {
         guard let email = emailTextField.text, !email.isEmpty else {
             Alerts.showError(on: self, message: "Enter e-mail address")

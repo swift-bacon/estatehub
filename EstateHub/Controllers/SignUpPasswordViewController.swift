@@ -72,6 +72,9 @@ class SignUpPasswordViewController: UIViewController {
     
     // MARK: - Actions
     
+    ///
+    /// Next button tapped
+    /// 
     @objc private func nextButtonTapped() {
         guard let password = passwordTextField.text, !password.isEmpty else {
             Alerts.showError(on: self, message: "Enter password")

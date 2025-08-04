@@ -21,7 +21,9 @@ enum AdvertService {
             "name": advert.name,
             "description": advert.description,
             "address": advert.address,
-            "expirationDate": advert.expirationDate
+            "expirationDate": advert.expirationDate,
+            "isPromoted": advert.isPromoted,
+            "price": advert.price,
         ]
         _ = try await db.addDocument(data: data)
     }
@@ -42,7 +44,8 @@ enum AdvertService {
                 description: data["description"] as? String ?? "",
                 address: data["address"] as? String ?? "",
                 expirationDate: data["expirationDate"] as? String ?? "",
-                isPromoted: data["isPromoted"] as? Bool ?? false
+                isPromoted: data["isPromoted"] as? Bool ?? false,
+                price: data["price"] as? Int ?? 0
             )
         }
     }
@@ -62,6 +65,7 @@ enum AdvertService {
             "address": advert.address,
             "expirationDate": advert.expirationDate,
             "isPromoted": advert.isPromoted,
+            "price": advert.price,
         ]
         try await db.document(id).updateData(data)
     }

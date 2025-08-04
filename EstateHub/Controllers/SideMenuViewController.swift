@@ -6,11 +6,15 @@
 //
 import UIKit
 
+// MARK: - Protocols
+
 protocol SideMenuDelegate: AnyObject {
     func didSelectMenuItem(_ item: SideMenuViewController.MenuItem)
 }
 
 class SideMenuViewController: UIViewController {
+    
+    // MARK: - Menu item
     
     enum MenuItem: String, CaseIterable {
         case addAdvert = "Add Advert"
@@ -18,6 +22,8 @@ class SideMenuViewController: UIViewController {
         case settings = "Settings"
         case logout = "Logout"
     }
+    
+    // MARK: - Variables
     
     weak var delegate: SideMenuDelegate?
     
@@ -34,10 +40,16 @@ class SideMenuViewController: UIViewController {
     
     //MARK: - Setups
     
+    ///
+    /// Layout setups
+    ///
     private func layoutSetups() {
         view.backgroundColor = .white
     }
     
+    ///
+    /// Setup table view
+    ///
     private func setupTableView() {
         view.addSubview(tableView)
         tableView.translatesAutoresizingMaskIntoConstraints = false
@@ -54,6 +66,8 @@ class SideMenuViewController: UIViewController {
         tableView.delegate = self
     }
 }
+
+// MARK: - UITableViewDataSource, UITableViewDelegate
 
 extension SideMenuViewController: UITableViewDataSource, UITableViewDelegate {
     

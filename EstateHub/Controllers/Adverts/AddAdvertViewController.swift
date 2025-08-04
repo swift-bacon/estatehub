@@ -9,14 +9,34 @@ import UIKit
 class AddAdvertViewController: UIViewController {
     
     // MARK: - UI Elements
+    
     private var titleText = BigTitleLabel(labelText: "Add new advert")
     private var descriptionText = DescriptionLabel(labelText: "Fill add advert form")
     private let textFieldsView = UIView()
     private let titleTextField =  DefaultTextField(placeholder: "Enter title")
     private var descriptionTextView =  DefaultTextView(placeholder: "Short description", 80)
+    private let priceTextField = DefaultTextField(placeholder: "Price")
     private let streetTextField = DefaultTextField(placeholder: "Street")
+    
+    private lazy var priceStreetStackView: UIStackView = {
+        let stack = UIStackView(arrangedSubviews: [priceTextField, streetTextField])
+        stack.axis = .horizontal
+        stack.spacing = 12
+        stack.distribution = .fillProportionally
+        return stack
+    }()
+    
     private let cityTextField = DefaultTextField(placeholder: "City")
     private let countryTextField = DefaultTextField(placeholder: "Country")
+    
+    private lazy var cityCountryStackView: UIStackView = {
+        let stack = UIStackView(arrangedSubviews: [cityTextField, countryTextField])
+        stack.axis = .horizontal
+        stack.spacing = 12
+        stack.distribution = .fillEqually
+        return stack
+    }()
+    
     private let isPromotedSwitch = UISwitch()
     private let isPromotedLabel: UILabel = {
         let label = UILabel()
@@ -54,9 +74,12 @@ class AddAdvertViewController: UIViewController {
         view.addSubview(textFieldsView)
         textFieldsView.addSubview(titleTextField)
         textFieldsView.addSubview(descriptionTextView)
+        textFieldsView.addSubview(priceTextField)
         textFieldsView.addSubview(streetTextField)
+        textFieldsView.addSubview(priceStreetStackView)
         textFieldsView.addSubview(cityTextField)
         textFieldsView.addSubview(countryTextField)
+        textFieldsView.addSubview(cityCountryStackView)
         textFieldsView.addSubview(isPromotedLabel)
         textFieldsView.addSubview(isPromotedSwitch)
         view.addSubview(addButton)
@@ -66,12 +89,15 @@ class AddAdvertViewController: UIViewController {
         textFieldsView.translatesAutoresizingMaskIntoConstraints = false
         titleTextField.translatesAutoresizingMaskIntoConstraints = false
         descriptionTextView.translatesAutoresizingMaskIntoConstraints = false
+        priceTextField.translatesAutoresizingMaskIntoConstraints = false
         streetTextField.translatesAutoresizingMaskIntoConstraints = false
         cityTextField.translatesAutoresizingMaskIntoConstraints = false
         countryTextField.translatesAutoresizingMaskIntoConstraints = false
         isPromotedLabel.translatesAutoresizingMaskIntoConstraints = false
         isPromotedSwitch.translatesAutoresizingMaskIntoConstraints = false
         addButton.translatesAutoresizingMaskIntoConstraints = false
+        priceStreetStackView.translatesAutoresizingMaskIntoConstraints = false
+        cityCountryStackView.translatesAutoresizingMaskIntoConstraints = false
         
         NSLayoutConstraint.activate([
             titleText.topAnchor.constraint(equalTo: view.topAnchor, constant: 150),
@@ -91,21 +117,17 @@ class AddAdvertViewController: UIViewController {
             titleTextField.leadingAnchor.constraint(equalTo: textFieldsView.leadingAnchor, constant: 0),
             titleTextField.trailingAnchor.constraint(equalTo: textFieldsView.trailingAnchor, constant: 0),
             
-            descriptionTextView.topAnchor.constraint(equalTo: titleTextField.bottomAnchor, constant: 24),
+            descriptionTextView.topAnchor.constraint(equalTo: titleTextField.bottomAnchor, constant: 15),
             descriptionTextView.leadingAnchor.constraint(equalTo: textFieldsView.leadingAnchor, constant: 0),
             descriptionTextView.trailingAnchor.constraint(equalTo: textFieldsView.trailingAnchor, constant: 0),
             
-            streetTextField.topAnchor.constraint(equalTo: descriptionTextView.bottomAnchor, constant: 24),
-            streetTextField.leadingAnchor.constraint(equalTo: textFieldsView.leadingAnchor, constant: 0),
-            streetTextField.trailingAnchor.constraint(equalTo: textFieldsView.trailingAnchor, constant: 0),
+            priceStreetStackView.topAnchor.constraint(equalTo: descriptionTextView.bottomAnchor, constant: 24),
+            priceStreetStackView.leadingAnchor.constraint(equalTo: textFieldsView.leadingAnchor),
+            priceStreetStackView.trailingAnchor.constraint(equalTo: textFieldsView.trailingAnchor),
             
-            cityTextField.topAnchor.constraint(equalTo: streetTextField.bottomAnchor, constant: 24),
-            cityTextField.leadingAnchor.constraint(equalTo: textFieldsView.leadingAnchor, constant: 0),
-            cityTextField.trailingAnchor.constraint(equalTo: textFieldsView.trailingAnchor, constant: 0),
-            
-            countryTextField.topAnchor.constraint(equalTo: cityTextField.bottomAnchor, constant: 24),
-            countryTextField.leadingAnchor.constraint(equalTo: textFieldsView.leadingAnchor, constant: 0),
-            countryTextField.trailingAnchor.constraint(equalTo: textFieldsView.trailingAnchor, constant: 0),
+            cityCountryStackView.topAnchor.constraint(equalTo: priceStreetStackView.bottomAnchor, constant: 24),
+            cityCountryStackView.leadingAnchor.constraint(equalTo: textFieldsView.leadingAnchor),
+            cityCountryStackView.trailingAnchor.constraint(equalTo: textFieldsView.trailingAnchor),
             
             isPromotedLabel.topAnchor.constraint(equalTo: countryTextField.bottomAnchor, constant: 24),
             isPromotedLabel.leadingAnchor.constraint(equalTo: textFieldsView.leadingAnchor),
@@ -121,10 +143,16 @@ class AddAdvertViewController: UIViewController {
             addButton.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -60),
             addButton.heightAnchor.constraint(equalToConstant: 40)
         ])
+        
+        priceTextField.setContentHuggingPriority(.defaultHigh, for: .horizontal)
+        streetTextField.widthAnchor.constraint(equalTo: priceTextField.widthAnchor, multiplier: 2.0).isActive = true
     }
     
     // MARK: - Actions
     
+    ///
+    /// Add button tapped
+    ///
     @objc private func addButtonTapped() {
         Task { [weak self] in
             await self?.handleAddAdvert()
@@ -140,8 +168,13 @@ class AddAdvertViewController: UIViewController {
             return
         }
         
-        guard let description = descriptionText.text, !description.isEmpty else {
+        guard let description = descriptionTextView.text, !description.isEmpty else {
             Alerts.showError(on: self, message: "Enter short description")
+            return
+        }
+        
+        guard let price = priceTextField.text, !price.isEmpty else {
+            Alerts.showError(on: self, message: "Enter price")
             return
         }
         
@@ -170,7 +203,8 @@ class AddAdvertViewController: UIViewController {
             description: description,
             address: "\(street), \(city), \(country)",
             expirationDate: expirationDateString,
-            isPromoted: isPromoted
+            isPromoted: isPromoted,
+            price: Int(price) ?? 0
         )
         
         Task {

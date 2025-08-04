@@ -35,6 +35,9 @@ class SignUpAvatarViewController: UIViewController {
     
     // MARK: - Setups
     
+    ///
+    /// Setup layout
+    /// 
     private func setupLayout() {
         view.backgroundColor = .white
         
@@ -76,6 +79,9 @@ class SignUpAvatarViewController: UIViewController {
     
     // MARK: - Actions
     
+    ///
+    /// Register button tapped
+    ///
     @objc private func registerButtonTapped() {
         guard let userEmail = email, !userEmail.isEmpty, let userPassword = password, !userPassword.isEmpty else {
             print("Registration failed, missing parameters")
@@ -103,6 +109,9 @@ class SignUpAvatarViewController: UIViewController {
     
     // MARK: - Camera and media library
     
+    ///
+    /// Present action sheet
+    ///
     @objc private func presentActionSheet() {
         let actionSheet = UIAlertController(title: "Profile Picture", message: "How would you like to select a picture", preferredStyle: .actionSheet)
         actionSheet.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
@@ -115,6 +124,9 @@ class SignUpAvatarViewController: UIViewController {
         present(actionSheet, animated: true)
     }
     
+    ///
+    /// Present camera
+    ///
     private func presentCamera() {
         let vc = UIImagePickerController()
         vc.sourceType = .camera
@@ -123,6 +135,9 @@ class SignUpAvatarViewController: UIViewController {
         present(vc, animated: true)
     }
     
+    ///
+    /// Present photo library
+    ///
     private func presentPhotoLibrary() {
         let vc = UIImagePickerController()
         vc.sourceType = .photoLibrary

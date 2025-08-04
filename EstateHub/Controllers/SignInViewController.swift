@@ -10,6 +10,7 @@ import UIKit
 class SignInViewController: UIViewController {
     
     // MARK: - UI Elements
+    
     private var titleText = BigTitleLabel(labelText: "Login to \(appName)")
     private var descriptionText = DescriptionLabel(labelText: "Enter to the hub with best estates adverts list")
     private let textFieldsView = UIView()
@@ -81,6 +82,9 @@ class SignInViewController: UIViewController {
     
     // MARK: - Actions
     
+    ///
+    /// Login button tapped
+    /// 
     @objc private func loginButtonTapped() {
         Task { [weak self] in
             await self?.handleLogin()

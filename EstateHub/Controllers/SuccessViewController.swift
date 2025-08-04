@@ -9,6 +9,8 @@ import UIKit
 class SuccessViewController: UIViewController {
     
     var completion: (() -> Void)?
+    
+    // MARK: - Variables
 
     private let successLabel: UILabel = {
         let label = UILabel()
@@ -25,12 +27,19 @@ class SuccessViewController: UIViewController {
         return button
     }()
     
+    // MARK: - View lifecycle
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .white
         layout()
     }
     
+    // MARK: - Setups
+    
+    ///
+    /// Layout
+    ///
     private func layout() {
         view.addSubview(successLabel)
         view.addSubview(continueButton)
@@ -46,6 +55,11 @@ class SuccessViewController: UIViewController {
         ])
     }
     
+    // MARK: - Actions
+    
+    ///
+    /// Dismiss and return
+    /// 
     @objc func dismissAndReturn() {
         completion?()
     }
