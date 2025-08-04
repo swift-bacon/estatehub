@@ -295,7 +295,9 @@ extension DashboardViewController: SideMenuDelegate {
             case .addAdvert:
                 navigationController?.pushViewController(AddAdvertViewController(), animated: true)
             case .profile:
-                navigationController?.pushViewController(UserProfileViewController(), animated: true)
+                let storyboard = UIStoryboard(name: "Main", bundle: nil)
+                let userProfileViewController = storyboard.instantiateViewController(withIdentifier: "UserProfileViewController")
+                navigationController?.pushViewController(userProfileViewController, animated: true)
             case .settings:
                 navigationController?.pushViewController(SettingsViewController(), animated: true)
             case .logout:
