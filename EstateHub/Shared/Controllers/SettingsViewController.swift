@@ -15,4 +15,7 @@ class SettingsViewController: UIViewController {
         
     }
     
+    deinit {
+        print("\(String(describing: self)) deinit")
+    }
 }

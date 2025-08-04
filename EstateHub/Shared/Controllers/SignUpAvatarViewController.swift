@@ -29,6 +29,10 @@ class SignUpAvatarViewController: UIViewController {
         setupLayout()
     }
     
+    deinit {
+        print("\(String(describing: self)) deinit")
+    }
+    
     // MARK: - Setups
     
     private func setupLayout() {

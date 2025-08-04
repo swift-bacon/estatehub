@@ -23,6 +23,10 @@ class StartViewController: UIViewController {
         setupView()
     }
     
+    deinit {
+        print("\(String(describing: self)) deinit")
+    }
+    
     // MARK: - Actions
     
     @IBAction func signInButtonDidTapped(_ sender: Any) {}

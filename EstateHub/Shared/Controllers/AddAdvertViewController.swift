@@ -14,4 +14,7 @@ class AddAvertViewController: UIViewController {
         super.viewDidLoad()
     }
     
+    deinit {
+        print("\(String(describing: self)) deinit")
+    }
 }

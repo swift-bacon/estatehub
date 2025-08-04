@@ -7,27 +7,21 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
-        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="AdvertTableViewCell" customModule="EstateHub" customModuleProvider="target">
-            <connections>
-                <outlet property="advertDescriptionLabel" destination="yCv-Fd-QfU" id="8DO-19-Jdz"/>
-                <outlet property="advertImageView" destination="KjU-0N-IMz" id="XeY-II-F6R"/>
-                <outlet property="advertPriceLabel" destination="Gxj-wL-5ra" id="Mkj-n6-AeX"/>
-                <outlet property="advertTitleLabel" destination="9nM-Ey-dPv" id="z3G-yr-mSe"/>
-            </connections>
-        </placeholder>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="AdvertTableViewCell" rowHeight="145" id="52J-eh-fzP">
+        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="AdvertTableViewCell" rowHeight="145" id="52J-eh-fzP" customClass="AdvertTableViewCell" customModule="EstateHub" customModuleProvider="target">
             <rect key="frame" x="0.0" y="0.0" width="393" height="145"/>
             <autoresizingMask key="autoresizingMask"/>
-            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="52J-eh-fzP" id="fW5-tc-8Ej">
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" ambiguous="YES" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="52J-eh-fzP" id="fW5-tc-8Ej">
                 <rect key="frame" x="0.0" y="0.0" width="393" height="145"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hgi-qw-R5s">
-                        <rect key="frame" x="0.0" y="0.0" width="393" height="145"/>
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="150"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="KjU-0N-IMz">
-                                <rect key="frame" x="10" y="27.666666666666671" width="90" height="90"/>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="photo" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="KjU-0N-IMz">
+                                <rect key="frame" x="10" y="31.666666666666657" width="90" height="87"/>
+                                <color key="tintColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="90" id="aOX-Vt-STP"/>
                                     <constraint firstAttribute="height" constant="90" id="sas-nF-Ud3"/>
@@ -46,7 +40,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Gxj-wL-5ra">
-                                <rect key="frame" x="120" y="103" width="253" height="17"/>
+                                <rect key="frame" x="120" y="108" width="253" height="17"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="14"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -62,6 +56,7 @@
                             <constraint firstAttribute="trailing" secondItem="yCv-Fd-QfU" secondAttribute="trailing" constant="10" id="SxQ-K9-zE9"/>
                             <constraint firstAttribute="trailing" secondItem="9nM-Ey-dPv" secondAttribute="trailing" constant="10" id="Wqc-DS-Rtz"/>
                             <constraint firstItem="9nM-Ey-dPv" firstAttribute="top" secondItem="hgi-qw-R5s" secondAttribute="top" constant="25" id="XBo-ef-Eie"/>
+                            <constraint firstAttribute="height" constant="150" id="ZNl-pZ-7zN"/>
                             <constraint firstItem="KjU-0N-IMz" firstAttribute="leading" secondItem="hgi-qw-R5s" secondAttribute="leading" constant="10" id="bSS-bd-KJ6"/>
                             <constraint firstItem="yCv-Fd-QfU" firstAttribute="leading" secondItem="KjU-0N-IMz" secondAttribute="trailing" constant="10" id="cXy-Sb-Lyu"/>
                             <constraint firstAttribute="trailing" secondItem="Gxj-wL-5ra" secondAttribute="trailing" constant="20" id="voh-8u-kD6"/>
@@ -75,10 +70,16 @@
                     <constraint firstAttribute="trailing" secondItem="hgi-qw-R5s" secondAttribute="trailing" id="ihm-xn-EoI"/>
                 </constraints>
             </tableViewCellContentView>
+            <connections>
+                <outlet property="advertImageView" destination="KjU-0N-IMz" id="baV-XM-sUd"/>
+                <outlet property="advertPriceLabel" destination="Gxj-wL-5ra" id="5ZN-ue-qEj"/>
+                <outlet property="advertTitleLabel" destination="9nM-Ey-dPv" id="ZMj-ra-1CM"/>
+            </connections>
             <point key="canvasLocation" x="-353.43511450381681" y="-1679.2253521126761"/>
         </tableViewCell>
     </objects>
     <resources>
+        <image name="photo" catalog="system" width="128" height="93"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

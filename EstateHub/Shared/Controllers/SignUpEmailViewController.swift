@@ -24,6 +24,10 @@ class SignUpEmailViewController: UIViewController {
         setupLayout()
     }
     
+    deinit {
+        print("\(String(describing: self)) deinit")
+    }
+    
     // MARK: - Layout
     
     ///

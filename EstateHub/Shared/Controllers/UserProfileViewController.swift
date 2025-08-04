@@ -14,4 +14,8 @@ class UserProfileViewController: UIViewController {
         super.viewDidLoad()
     }
     
+    deinit {
+        print("\(String(describing: self)) deinit")
+    }
+    
 }

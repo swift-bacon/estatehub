@@ -8,6 +8,17 @@ import UIKit
 
 class AdvertTableViewCell: UITableViewCell {
     
+    // MARK: - View configuration
+    
+    enum ViewConfiguration: String {
+        case `default` = "AdvertTableViewCell"
+        var nib: UINib? {
+            get {
+                return UINib(nibName: self.rawValue, bundle: nil)
+            }
+        }
+    }
+    
     // MARK: - Outlets
     
     @IBOutlet weak var advertImageView: UIImageView!
@@ -17,14 +28,17 @@ class AdvertTableViewCell: UITableViewCell {
     
     // MARK: - View lifecycle
     
-    override class func awakeFromNib() {
+    override func awakeFromNib() {
         super.awakeFromNib()
+        
+        layoutSetups()
     }
     
     // MARK: - Layout setups
     
     private func layoutSetups() {
-        
+        advertImageView.layer.cornerRadius = 15
+        advertImageView.clipsToBounds = false
     }
     
 }
